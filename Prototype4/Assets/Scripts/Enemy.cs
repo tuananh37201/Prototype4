@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private GameObject player;
     private Rigidbody rb;
+    
     public float speed;
 
     void Start()
@@ -19,5 +20,12 @@ public class Enemy : MonoBehaviour
     {
         Vector3 lookDir = (player.transform.position - transform.position).normalized;
         rb.AddForce(lookDir * speed);
+
+        if(transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
+
+
     }
 }
